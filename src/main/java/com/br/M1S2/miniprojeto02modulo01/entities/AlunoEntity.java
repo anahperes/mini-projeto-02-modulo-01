@@ -7,10 +7,15 @@ import java.util.Date;
 @Entity
 @Table(name = "alunos")
 public class AlunoEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nome;
+
     private Date nascimento;
 
+    @OneToMany(mappedBy = "aluno")
+    private List<DisciplinaMatricula> disciplinas;
 }

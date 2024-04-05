@@ -13,8 +13,8 @@ public class DisciplinaEntity {
 
     private String nome;
 
-    //@ManyToOne
-    //@JoinColumn(name = "professor_id")
-    //private ProfessorEntity professorEntity;
+    @ManyToOne
+    @JoinColumn(name = "professor_id")
+    private ProfessorEntity professorEntity;
 
 }
