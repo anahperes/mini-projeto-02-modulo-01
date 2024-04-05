@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -12,17 +13,19 @@ public class DisciplinaMatricula {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @OneToMany(mappedBy = "matricula")
     private Long id;
-
 
     @ManyToOne
     @JoinColumn(name = "aluno_id")
     private AlunoEntity aluno;
 
     @ManyToOne
-    @JoinColumn(name = "professor_id")
+    @JoinColumn(name = "disciplina_id")
     private DisciplinaEntity disciplina;
+
+
+    @OneToMany(mappedBy = "matricula")
+    private List<NotasEntity> notas;
 
 
     @Column(name = "data_matricula")
