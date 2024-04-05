@@ -9,7 +9,7 @@ import java.util.Date;
 public class AlunoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ig;
+    private Long id;
 
     private Date nascimento;
 

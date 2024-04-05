@@ -12,7 +12,6 @@ public class AlunoServiceImpl implements AlunoService{
     }
 
 
-
     //Métodos implementados quando implementado "AlunoService"
     @Override
     public List<AlunoEntity> getAll() {
