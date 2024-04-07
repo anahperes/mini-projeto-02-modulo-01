@@ -31,6 +31,11 @@ public class DiscilplinaServiceImpl implements DisciplinaService {
     }
 
     @Override
+    public DisciplinaEntity cadastrar(DisciplinaEntity novaDisciplina) {
+        return repository.save(novaDisciplina);
+    }
+
+    @Override
     public void dell(Long id) {
         DisciplinaEntity disciplina = getById(id);
         repository.delete(disciplina);
