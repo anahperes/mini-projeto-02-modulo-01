@@ -7,7 +7,7 @@ public interface AlunoService {
 
     public AlunoEntity getById(Long id);
 
-    public AlunoEntity update(Long id, AlunoEntity caderno);
+    public AlunoEntity update(Long id, AlunoEntity aluno);
 
     void dell(Long id);
 }

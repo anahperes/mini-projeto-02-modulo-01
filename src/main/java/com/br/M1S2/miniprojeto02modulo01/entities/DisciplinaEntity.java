@@ -15,6 +15,6 @@ public class DisciplinaEntity {
 
     @ManyToOne
     @JoinColumn(name = "professor_id")
-    private ProfessorEntity professorEntity;
+    private ProfessoresEntity professorEntity;
 
 }
