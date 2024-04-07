@@ -1,8 +1,11 @@
 package com.br.M1S2.miniprojeto02modulo01.services;
 import com.br.M1S2.miniprojeto02modulo01.entities.AlunoEntity;
 import com.br.M1S2.miniprojeto02modulo01.repository.AlunoRepository;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class AlunoServiceImpl implements AlunoService{
 
     //Traz o repositório e reclama construtor
