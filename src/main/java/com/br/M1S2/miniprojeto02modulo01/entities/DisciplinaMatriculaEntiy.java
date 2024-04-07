@@ -13,7 +13,6 @@ public class DisciplinaMatriculaEntiy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @ManyToOne
     @JoinColumn(name = "aluno_id")
     private AlunoEntity aluno;
@@ -23,7 +22,8 @@ public class DisciplinaMatriculaEntiy {
     private DisciplinaEntity disciplina;
 
 
-    @OneToMany(mappedBy = "matricula")
+
+    @OneToMany(mappedBy = "nota")
     private List<NotasEntity> notas;
 
 

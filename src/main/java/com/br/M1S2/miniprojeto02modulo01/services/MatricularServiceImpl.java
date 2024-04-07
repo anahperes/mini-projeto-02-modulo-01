@@ -65,7 +65,7 @@ public class MatricularServiceImpl implements MatricularService {
     @Override
     public List<DisciplinaMatriculaEntiy> getMatriculasByAlunoId(Long id) {
         var aluno = alunoService.getById(id);
-        return aluno.getDisciplinas();
+        return null; //aluno.getDisciplinas();
     }
 
     //Retornar todas as matrículas de um disciplina
@@ -73,7 +73,7 @@ public class MatricularServiceImpl implements MatricularService {
     public List<DisciplinaMatriculaEntiy> getTodasDisciplinas(Long id) {
         var matricula = repository.getById(id);
         var disciplina = matricula.getDisciplina();
-        return disciplina.getMatriculas();
+        return null; //disciplina.getMatriculas();
     }
 
 }

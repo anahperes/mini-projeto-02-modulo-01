@@ -14,7 +14,7 @@ public class ProfessoresController {
 
     private  final ProfessoresService service;
 
-    @GetMapping("{id")
+    @GetMapping("{id}")
     public ResponseEntity<ProfessoresEntity> getById(@PathVariable Long id) {
         return ResponseEntity.ok(service.getById(id));
     }
@@ -30,7 +30,7 @@ public class ProfessoresController {
         return ResponseEntity.ok(service.update(id, entity));
     }
 
-    @DeleteMapping("{id")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> dell (@PathVariable Long id) {
         service.dell(id);
         return ResponseEntity.noContent().build();

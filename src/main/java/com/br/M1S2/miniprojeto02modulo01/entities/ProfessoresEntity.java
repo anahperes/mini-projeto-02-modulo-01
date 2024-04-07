@@ -4,21 +4,24 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name = "professores")
-public class ProfessoresEntity implements Serializable {
+public class ProfessoresEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(length = 150)
+    @Column(name = "nome")
     private String nome;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "professor")
-//    private List<DisciplinaEntity> disciplinas;
+    @OneToMany(mappedBy = "professor")
+    private List<NotasEntity> nota;
+
+    @OneToMany(mappedBy = "professor")
+    private List<DisciplinaEntity> disciplinas;
 }
