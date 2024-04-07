@@ -13,10 +13,12 @@ public class AlunoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nome", nullable = false)
     private String nome;
 
+    @Column(name = "data_nascimento")
     private Date nascimento;
 
     @OneToMany(mappedBy = "aluno")
-    private List<DisciplinaMatricula> disciplinas;
+    private List<DisciplinaMatriculaEntiy> disciplinas;
 }

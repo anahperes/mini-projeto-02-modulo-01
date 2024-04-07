@@ -9,5 +9,7 @@ public interface AlunoService {
 
     public AlunoEntity update(Long id, AlunoEntity aluno);
 
+    public AlunoEntity cadastrar(AlunoEntity newAluno);
+
     void dell(Long id);
 }
