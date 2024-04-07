@@ -1,5 +1,4 @@
 package com.br.M1S2.miniprojeto02modulo01.entities;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,9 +20,10 @@ public class NotasEntity {
     private ProfessorEntity professor;
 
 
-    @Column(name = "nota")
+    @Column(name = "nota", nullable = false)
     private Double nota = 0.00;
 
+    //Verificar card06
     @Column(name = "coeficiente")
     private Integer coeficiente = 0;
 }
