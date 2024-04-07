@@ -1,24 +1,22 @@
 package com.br.M1S2.miniprojeto02modulo01.entities;
-
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "disciplina_matricula")
-public class DisciplinaMatricula {
+public class DisciplinaMatriculaEntiy {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @ManyToOne
     @JoinColumn(name = "aluno_id")
     private AlunoEntity aluno;
-
     @ManyToOne
     @JoinColumn(name = "disciplina_id")
     private DisciplinaEntity disciplina;
@@ -29,9 +27,8 @@ public class DisciplinaMatricula {
 
 
     @Column(name = "data_matricula")
-    private Date dataMatricula;
-
+    private LocalDate dataMatricula = LocalDate.now();
     @Column(name = "media_final")
-    private Double mediaFinal;
+    private Double mediaFinal = 0.00;
 
 }

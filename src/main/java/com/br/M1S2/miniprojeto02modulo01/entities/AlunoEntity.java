@@ -2,6 +2,7 @@ package com.br.M1S2.miniprojeto02modulo01.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,5 +18,5 @@ public class AlunoEntity {
     private Date nascimento;
 
     @OneToMany(mappedBy = "aluno")
-    private List<DisciplinaMatricula> disciplinas;
+    private List<DisciplinaMatriculaEntiy> disciplinas;
 }

@@ -14,7 +14,7 @@ public class NotasEntity {
 
     @ManyToOne
     @JoinColumn(name = "disciplina_matricula_id")
-    private DisciplinaMatricula matricula;
+    private DisciplinaMatriculaEntiy matricula;
 
     @ManyToOne
     @JoinColumn(name = "professor_id")

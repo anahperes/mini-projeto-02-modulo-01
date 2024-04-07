@@ -1,14 +1,16 @@
 package com.br.M1S2.miniprojeto02modulo01.services;
 import com.br.M1S2.miniprojeto02modulo01.entities.DisciplinaEntity;
+import com.br.M1S2.miniprojeto02modulo01.entities.DisciplinaMatriculaEntiy;
 
 import java.util.List;
 
 public interface MatricularService {
-    public List<DisciplinaEntity> getAll();
 
-    public DisciplinaEntity getById(Long id);
+    public DisciplinaMatriculaEntiy getById(Long id);
 
-    public DisciplinaEntity update(Long id, DisciplinaEntity disciplina);
+    public List<DisciplinaMatriculaEntiy> getMatriculasByAlunoId(Long id);
 
-    void dell(Long id);
+    public DisciplinaMatriculaEntiy matricular(DisciplinaMatriculaEntiy matricula);
+
+    void dell(Long id) throws Exception;
 }

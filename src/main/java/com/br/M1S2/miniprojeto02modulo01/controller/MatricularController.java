@@ -1,8 +1,11 @@
 package com.br.M1S2.miniprojeto02modulo01.controller;
 
 import com.br.M1S2.miniprojeto02modulo01.entities.DisciplinaEntity;
+import com.br.M1S2.miniprojeto02modulo01.entities.DisciplinaMatriculaEntiy;
 import com.br.M1S2.miniprojeto02modulo01.services.AlunoService;
 import com.br.M1S2.miniprojeto02modulo01.services.DisciplinaService;
+import com.br.M1S2.miniprojeto02modulo01.services.MatricularService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,39 +15,42 @@ import java.util.List;
 @RequestMapping("matricular")
 public class MatricularController {
 
-    private final DisciplinaService service;
-    private final AlunoService alunoService;
-    public MatricularController(DisciplinaService service, AlunoService alunoService) {
+    private final MatricularService service;
+    public MatricularController(MatricularService service) {
         this.service = service;
-        this.alunoService = alunoService;
     }
+
+
+    @PostMapping
+    public ResponseEntity<DisciplinaMatriculaEntiy> post(@RequestBody DisciplinaMatriculaEntiy request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.matricular(request));
+    }
+
+
+
+
 
 
     //Retorna uma matrícula por ID
     @GetMapping("{id}")
-    public ResponseEntity<DisciplinaEntity> getId(@PathVariable Long id) {
+    public ResponseEntity<DisciplinaMatriculaEntiy> getId(@PathVariable Long id) {
         return ResponseEntity.ok(service.getById(id));
     }
 
     //Retorna as Matrículas de um Aluno (todas)
     @GetMapping
-    public ResponseEntity<List<DisciplinaEntity>> get() {
+    public ResponseEntity<List<DisciplinaMatriculaEntiy>> get() {
         var all = service.getAll();
         return ResponseEntity.ok(all);
     }
 
 
 
-
-
     //Realiza uma Matrícula - Recebe Aluno_id e Disciplina_ID
     @PutMapping("aluno/{id}")
-    public ResponseEntity<DisciplinaEntity> put(@PathVariable Long id, @RequestBody DisciplinaEntity entity) {
+    public ResponseEntity<DisciplinaMatriculaEntiy> put(@PathVariable Long id, @RequestBody DisciplinaMatriculaEntiy entity) {
         return ResponseEntity.ok(service.update(id, entity));
     }
-
-
-
 
 
 
