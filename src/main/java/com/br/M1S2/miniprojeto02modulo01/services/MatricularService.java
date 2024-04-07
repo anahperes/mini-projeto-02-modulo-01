@@ -10,6 +10,8 @@ public interface MatricularService {
 
     public List<DisciplinaMatriculaEntiy> getMatriculasByAlunoId(Long id);
 
+    public List<DisciplinaMatriculaEntiy> getTodasDisciplinas(Long id);
+
     public DisciplinaMatriculaEntiy matricular(DisciplinaMatriculaEntiy matricula);
 
     void dell(Long id) throws Exception;

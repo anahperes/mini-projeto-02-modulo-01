@@ -8,19 +8,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MatricularServiceImpl implements MatricularService{
+public class MatricularServiceImpl implements MatricularService {
 
     private final DisciplinaMatriculaRepository repository;
     private final AlunoService alunoService;
     private final DisciplinaService disciplinaService;
-    private final NotasService notaService;
-
 
     public MatricularServiceImpl(DisciplinaMatriculaRepository repository, AlunoService alunoService, DisciplinaService disciplinaService, NotasService notasService) {
         this.repository = repository;
         this.alunoService = alunoService;
         this.disciplinaService = disciplinaService;
-        this.notaService = notasService;
     }
 
     @Override
@@ -72,12 +69,11 @@ public class MatricularServiceImpl implements MatricularService{
     }
 
     //Retornar todas as matrículas de um disciplina
-
     @Override
     public List<DisciplinaMatriculaEntiy> getTodasDisciplinas(Long id) {
         var matricula = repository.getById(id);
         var disciplina = matricula.getDisciplina();
-        return null;
+        return disciplina.getMatriculas();
     }
 
 }
