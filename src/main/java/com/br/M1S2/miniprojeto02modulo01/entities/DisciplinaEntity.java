@@ -18,7 +18,7 @@ public class DisciplinaEntity {
 
     @ManyToOne
     @JoinColumn(name = "professor_id")
-    private ProfessoresEntity professor;
+    private ProfessorEntity professor;
 
     @OneToMany(mappedBy = "disciplina")
     private List<DisciplinaMatriculaEntiy> matriculas;
