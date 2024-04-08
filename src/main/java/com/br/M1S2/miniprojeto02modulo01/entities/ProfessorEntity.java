@@ -23,12 +23,4 @@ public class ProfessorEntity implements Serializable {
     @OneToMany(mappedBy = "professor")
     private List<DisciplinaEntity> disciplinas;
 
-    // Construtor que aceita um argumento do tipo int para o ID do professor
-    public ProfessorEntity(int id) {
-        this.id = (long) id;
-    }
-
-    public ProfessorEntity() {
-
-    }
 }

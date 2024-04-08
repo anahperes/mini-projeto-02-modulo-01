@@ -24,17 +24,16 @@ public class DisciplinaController {
 
     @GetMapping("{id}")
     public ResponseEntity<DisciplinaEntity> getId(@PathVariable Long id) {
-        return ResponseEntity.ok(service.getById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(service.getById(id));
     }
     @GetMapping
     public ResponseEntity<List<DisciplinaEntity>> get() {
-        var all = service.getAll();
-        return ResponseEntity.ok(all);
+        return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
     }
 
     @PutMapping("{id}")
     public ResponseEntity<DisciplinaEntity> put(@PathVariable Long id, @RequestBody DisciplinaEntity entity) {
-        return ResponseEntity.ok(service.update(id, entity));
+        return ResponseEntity.status(HttpStatus.OK).body(service.update(id, entity));
     }
 
     @DeleteMapping("{id}")

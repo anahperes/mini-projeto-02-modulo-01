@@ -1,4 +1,5 @@
 package com.br.M1S2.miniprojeto02modulo01.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,10 +17,12 @@ public class DisciplinaEntity {
     @Column(name = "nome", nullable = false)
     private String nome;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "professor_id")
     private ProfessorEntity professor;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "disciplina")
     private List<DisciplinaMatriculaEntiy> matriculas;
 
