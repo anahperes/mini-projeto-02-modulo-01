@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MatricularServiceImpl implements MatricularService {
@@ -94,7 +95,9 @@ public class MatricularServiceImpl implements MatricularService {
         }
 
         var aluno = alunoService.getById(id);
-        return aluno.getDisciplinas();
+        //List disciplinas = aluno.getDisciplinas();
+        List<DisciplinaMatriculaEntiy> list = repository.findAll().stream().filter(x -> x.getAluno() == aluno).collect(Collectors.toList());
+        return list;
     }
 
     //Retornar todas as matrículas de um disciplina

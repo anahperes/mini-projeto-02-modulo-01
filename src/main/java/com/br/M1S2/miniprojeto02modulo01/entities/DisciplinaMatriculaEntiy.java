@@ -14,7 +14,7 @@ public class DisciplinaMatriculaEntiy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "aluno_id")
     private AlunoEntity aluno;
