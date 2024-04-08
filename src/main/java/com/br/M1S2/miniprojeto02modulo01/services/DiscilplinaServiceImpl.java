@@ -1,6 +1,9 @@
 package com.br.M1S2.miniprojeto02modulo01.services;
 import com.br.M1S2.miniprojeto02modulo01.entities.DisciplinaEntity;
+import com.br.M1S2.miniprojeto02modulo01.exception.NotFoundException;
 import com.br.M1S2.miniprojeto02modulo01.repository.DisciplinaRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +12,7 @@ import java.util.List;
 public class DiscilplinaServiceImpl implements DisciplinaService {
 
     private final DisciplinaRepository repository;
+    private static final Logger logger = LoggerFactory.getLogger(DiscilplinaServiceImpl.class);
     public DiscilplinaServiceImpl(DisciplinaRepository repository) {
         this.repository = repository;
     }
@@ -16,22 +20,35 @@ public class DiscilplinaServiceImpl implements DisciplinaService {
 
     @Override
     public List<DisciplinaEntity> getAll() {
-        List<DisciplinaEntity> lista = repository.findAll();
-        return lista;
+        return repository.findAll();
     }
 
     @Override
     public DisciplinaEntity getById(Long id) {
+        if (!repository.existsById(id)) {
+            logger.warn("Disciplina não encontrada com ID: {}", id);
+            throw new NotFoundException("Disciplina não encontrada com ID: " + id);
+        }
         return repository.findById(id).get();
     }
 
     @Override
     public DisciplinaEntity update(Long id, DisciplinaEntity disciplina) {
-        return repository.save(disciplina);
+        DisciplinaEntity entity = repository.findById(id).get();
+
+        if (!repository.existsById(id)) {
+            logger.warn("Disciplina não encontrada - ID: {}", id);
+            throw new NotFoundException("Disciplina não encontrada - ID: " + id);
+        }
+
+        entity.setNome(disciplina.getNome());
+        logger.info("Disciplina atualizada - ID: {}", id);
+        return disciplina;
     }
 
     @Override
     public DisciplinaEntity cadastrar(DisciplinaEntity novaDisciplina) {
+        logger.info("Disciplina cadastrada: {}", novaDisciplina);
         return repository.save(novaDisciplina);
     }
 

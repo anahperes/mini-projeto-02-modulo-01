@@ -24,18 +24,17 @@ public class AlunoController {
 
     @GetMapping("{id}")
     public ResponseEntity<AlunoEntity> getId(@PathVariable Long id) {
-        return ResponseEntity.ok(service.getById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(service.getById(id));
     }
 
     @GetMapping
     public ResponseEntity<List<AlunoEntity>> get() {
-        var all = service.getAll();
-        return ResponseEntity.ok(all);
+        return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
     }
 
     @PutMapping("{id}")
     public ResponseEntity<AlunoEntity> put(@PathVariable Long id, @RequestBody AlunoEntity entity) {
-        return ResponseEntity.ok(service.update(id, entity));
+        return ResponseEntity.status(HttpStatus.OK).body(service.update(id, entity));
     }
 
     @DeleteMapping("{id}")
@@ -43,5 +42,7 @@ public class AlunoController {
         service.dell(id);
         return ResponseEntity.noContent().build();
     }
+
+
 
 }

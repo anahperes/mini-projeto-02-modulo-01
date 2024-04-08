@@ -1,19 +1,18 @@
 package com.br.M1S2.miniprojeto02modulo01.services;
-
+import com.br.M1S2.miniprojeto02modulo01.entities.AlunoEntity;
 import com.br.M1S2.miniprojeto02modulo01.entities.ProfessorEntity;
 import com.br.M1S2.miniprojeto02modulo01.exception.NotFoundException;
 import com.br.M1S2.miniprojeto02modulo01.repository.ProfessorRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ProfessorServiceImpl implements ProfessorService {
 
-    private static final Logger logger = LoggerFactory.getLogger(AlunoServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProfessorServiceImpl.class);
     private final ProfessorRepository professorRepository;
 
     public ProfessorServiceImpl(ProfessorRepository professorRepository) {
@@ -46,13 +45,17 @@ public class ProfessorServiceImpl implements ProfessorService {
 
     @Override
     public ProfessorEntity atualizarProfessor(Long id, ProfessorEntity professorAtualizado) {
-        logger.info("Atualizando Professor com o ID: {}", id);
+        logger.info("Atualizando Aluno com o ID: {}", id);
+        ProfessorEntity entity = professorRepository.findById(id).get();
+
         if (!professorRepository.existsById(id)) {
             logger.warn("Professor não encontrado com o ID: {}", id);
             throw new NotFoundException("Professor não encontrado com o ID: " + id);
         }
-        professorAtualizado.setId(id);
-        return professorRepository.save(professorAtualizado);
+
+        entity.setNome(professorAtualizado.getNome());
+        logger.info("Professor atualizado - ID: {}", id);
+        return entity;
     }
 
     @Override
@@ -63,5 +66,6 @@ public class ProfessorServiceImpl implements ProfessorService {
             throw new NotFoundException("Professor não encontrado com o ID: " + id);
         }
         professorRepository.deleteById(id);
+        logger.info("Professor deletado - ID: {}", id);
     }
 }

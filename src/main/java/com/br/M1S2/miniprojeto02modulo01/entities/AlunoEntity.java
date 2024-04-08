@@ -1,4 +1,5 @@
 package com.br.M1S2.miniprojeto02modulo01.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
@@ -19,6 +20,7 @@ public class AlunoEntity {
     @Column(name = "data_nascimento")
     private Date nascimento;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "aluno")
     private List<DisciplinaMatriculaEntiy> disciplinas;
 }

@@ -1,4 +1,5 @@
 package com.br.M1S2.miniprojeto02modulo01.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,11 +17,13 @@ public class DisciplinaEntity {
     @Column(name = "nome", nullable = false)
     private String nome;
 
+
     @ManyToOne
     @JoinColumn(name = "professor_id")
     private ProfessorEntity professor;
 
-    @OneToMany(mappedBy = "disciplina")
+    @JsonIgnore
+    @OneToMany(mappedBy = "disciplina", fetch = FetchType.EAGER)
     private List<DisciplinaMatriculaEntiy> matriculas;
 
 }
