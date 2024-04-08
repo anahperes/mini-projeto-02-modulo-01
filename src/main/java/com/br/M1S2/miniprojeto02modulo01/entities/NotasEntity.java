@@ -3,17 +3,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @Entity
 @Table(name = "notas")
-public class NotasEntity {
+public class NotasEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "matricula_id")
     private DisciplinaMatriculaEntiy matricula;
 
@@ -27,5 +29,5 @@ public class NotasEntity {
     private Double nota = 0.00;
 
     @Column(name = "coeficiente")
-    private Integer coeficiente = 0;
+    private Double coeficiente = 0.0;
 }
