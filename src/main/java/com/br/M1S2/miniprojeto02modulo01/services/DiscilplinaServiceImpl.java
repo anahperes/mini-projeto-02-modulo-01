@@ -20,25 +20,20 @@ public class DiscilplinaServiceImpl implements DisciplinaService {
 
     @Override
     public List<DisciplinaEntity> getAll() {
-        logger.info("Listando todas as disciplinas");
         return repository.findAll();
     }
 
     @Override
     public DisciplinaEntity getById(Long id) {
-        logger.info("Obtendo disciplina por ID: {}", id);
-
         if (!repository.existsById(id)) {
             logger.warn("Disciplina não encontrada com ID: {}", id);
             throw new NotFoundException("Disciplina não encontrada com ID: " + id);
         }
-
         return repository.findById(id).get();
     }
 
     @Override
     public DisciplinaEntity update(Long id, DisciplinaEntity disciplina) {
-        logger.info("Atualizando nome da disciplina: ID {}", id);
         DisciplinaEntity entity = repository.findById(id).get();
 
         if (!repository.existsById(id)) {
@@ -53,7 +48,7 @@ public class DiscilplinaServiceImpl implements DisciplinaService {
 
     @Override
     public DisciplinaEntity cadastrar(DisciplinaEntity novaDisciplina) {
-        logger.info("Cadastrando nova disciplina: {}", novaDisciplina);
+        logger.info("Disciplina cadastrada: {}", novaDisciplina);
         return repository.save(novaDisciplina);
     }
 
@@ -61,6 +56,5 @@ public class DiscilplinaServiceImpl implements DisciplinaService {
     public void dell(Long id) {
         DisciplinaEntity disciplina = getById(id);
         repository.delete(disciplina);
-        logger.info("Disciplina deletada - ID: {}", id);
     }
 }
