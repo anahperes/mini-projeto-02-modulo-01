@@ -19,7 +19,7 @@ public class DisciplinaMatriculaEntiy {
     @JoinColumn(name = "aluno_id")
     private AlunoEntity aluno;
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "disciplina_id")
     private DisciplinaEntity disciplina;

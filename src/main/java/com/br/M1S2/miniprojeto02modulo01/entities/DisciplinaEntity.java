@@ -17,13 +17,13 @@ public class DisciplinaEntity {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "professor_id")
     private ProfessorEntity professor;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "disciplina")
+    @OneToMany(mappedBy = "disciplina", fetch = FetchType.EAGER)
     private List<DisciplinaMatriculaEntiy> matriculas;
 
 }

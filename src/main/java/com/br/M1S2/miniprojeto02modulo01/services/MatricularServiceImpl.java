@@ -95,16 +95,17 @@ public class MatricularServiceImpl implements MatricularService {
         }
 
         var aluno = alunoService.getById(id);
-        //List disciplinas = aluno.getDisciplinas();
-        List<DisciplinaMatriculaEntiy> list = repository.findAll().stream().filter(x -> x.getAluno() == aluno).collect(Collectors.toList());
+
+        List<DisciplinaMatriculaEntiy> list = repository.findAll().stream().filter(x -> x.getAluno()
+                .getId().equals(aluno.getId())).collect(Collectors.toList());
         return list;
     }
 
     //Retornar todas as matrículas de um disciplina
     @Override
     public List<DisciplinaMatriculaEntiy> getTodasDisciplinas(Long id) {
-
         var matricula = repository.getById(id);
+
         if (!repository.existsById(matricula.getId())) {
             logger.warn("Não encontrada a matricula de ID: {}", id);
             throw new NotFoundException("Não encontrada a matricula de ID: " + id);
@@ -116,8 +117,11 @@ public class MatricularServiceImpl implements MatricularService {
             throw new NotFoundException("Não cadastrada a disciplina de ID: " + id);
         }
 
+        List<DisciplinaMatriculaEntiy> list = repository.findAll().stream().filter(x -> x.getDisciplina().getId()
+                .equals(matricula.getDisciplina().getId())).collect(Collectors.toList());
+
         logger.info("Retornando todas as matrículas da disciplina de ID: {}", id);
-        return disciplina.getMatriculas();
+        return list;
     }
 
 
