@@ -22,8 +22,4 @@ public class DisciplinaEntity {
     @JoinColumn(name = "professor_id")
     private ProfessorEntity professor;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "disciplina", fetch = FetchType.EAGER)
-    private List<DisciplinaMatriculaEntiy> matriculas;
-
 }

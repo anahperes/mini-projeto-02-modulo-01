@@ -1,5 +1,4 @@
 package com.br.M1S2.miniprojeto02modulo01;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

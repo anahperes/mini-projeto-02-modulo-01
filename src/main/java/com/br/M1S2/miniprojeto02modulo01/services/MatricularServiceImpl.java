@@ -116,9 +116,10 @@ public class MatricularServiceImpl implements MatricularService {
             logger.warn("Não cadastrada a disciplina de ID: {}", id);
             throw new NotFoundException("Não cadastrada a disciplina de ID: " + id);
         }
+        var idDisciplina = matricula.getDisciplina().getId();
 
-        List<DisciplinaMatriculaEntiy> list = repository.findAll().stream().filter(x -> x.getDisciplina().getId()
-                .equals(matricula.getDisciplina().getId())).collect(Collectors.toList());
+        List<DisciplinaMatriculaEntiy> list = repository.buscaTodasPorDisciplinaPorId(idDisciplina);
+
 
         logger.info("Retornando todas as matrículas da disciplina de ID: {}", id);
         return list;

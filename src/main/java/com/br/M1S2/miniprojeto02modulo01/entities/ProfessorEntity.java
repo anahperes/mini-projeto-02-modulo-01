@@ -19,8 +19,4 @@ public class ProfessorEntity implements Serializable {
     @Column(length = 150)
     private String nome;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "professor")
-    private List<DisciplinaEntity> disciplinas;
-
 }
