@@ -19,27 +19,27 @@ public class AlunoController {
 
     @PostMapping
     public ResponseEntity<AlunoEntity> post(@RequestBody AlunoEntity newAluno) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.cadastrar(newAluno));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.adicionarAluno(newAluno));
     }
 
     @GetMapping("{id}")
     public ResponseEntity<AlunoEntity> getId(@PathVariable Long id) {
-        return ResponseEntity.status(HttpStatus.OK).body(service.getById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(service.obterAlunoPorId(id));
     }
 
     @GetMapping
     public ResponseEntity<List<AlunoEntity>> get() {
-        return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
+        return ResponseEntity.status(HttpStatus.OK).body(service.listarAlunos());
     }
 
     @PutMapping("{id}")
     public ResponseEntity<AlunoEntity> put(@PathVariable Long id, @RequestBody AlunoEntity entity) {
-        return ResponseEntity.status(HttpStatus.OK).body(service.update(id, entity));
+        return ResponseEntity.status(HttpStatus.OK).body(service.atualizarAluno(id, entity));
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> dell(@PathVariable Long id) {
-        service.dell(id);
+        service.deletarAluno(id);
         return ResponseEntity.noContent().build();
     }
 

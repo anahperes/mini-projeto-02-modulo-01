@@ -1,5 +1,6 @@
 package com.br.M1S2.miniprojeto02modulo01.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDate;
