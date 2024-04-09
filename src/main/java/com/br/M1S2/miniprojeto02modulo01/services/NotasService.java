@@ -11,5 +11,7 @@ public interface NotasService {
 
     public NotasEntity cadastrar(NotasEntity novaNota);
 
+
+
     void dell(Long id);
 }

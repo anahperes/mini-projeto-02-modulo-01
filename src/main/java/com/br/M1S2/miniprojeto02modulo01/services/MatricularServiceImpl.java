@@ -34,7 +34,7 @@ public class MatricularServiceImpl implements MatricularService {
 
     @Override
     public DisciplinaMatriculaEntiy matricular(DTOrequest entity) {
-        var aluno = alunoService.getById(entity.getAluno_id());
+        var aluno = alunoService.obterAlunoPorId(entity.getAluno_id());
         var disciplina = disciplinaService.getById(entity.getDisciplina_id());
 
         if (!alunoRepository.existsById(aluno.getId())) {
@@ -94,7 +94,7 @@ public class MatricularServiceImpl implements MatricularService {
             throw new NotFoundException("Aluno não encontrado com ID: " + id);
         }
 
-        var aluno = alunoService.getById(id);
+        var aluno = alunoService.obterAlunoPorId(id);
 
         List<DisciplinaMatriculaEntiy> list = repository.findAll().stream().filter(x -> x.getAluno()
                 .getId().equals(aluno.getId())).collect(Collectors.toList());
