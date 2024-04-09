@@ -21,7 +21,7 @@ public class NotasEntity {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "matricula_id")
-    private DisciplinaMatriculaEntiy matricula;
+    private DisciplinaMatriculaEntity matricula;
 
     @JsonIgnore
     @ManyToOne

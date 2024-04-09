@@ -1,8 +1,7 @@
 package com.br.M1S2.miniprojeto02modulo01.controller;
 import com.br.M1S2.miniprojeto02modulo01.entities.DTOrequest.DTOrequest;
-import com.br.M1S2.miniprojeto02modulo01.entities.DisciplinaMatriculaEntiy;
+import com.br.M1S2.miniprojeto02modulo01.entities.DisciplinaMatriculaEntity;
 import com.br.M1S2.miniprojeto02modulo01.services.MatricularService;
-import com.br.M1S2.miniprojeto02modulo01.services.MatricularServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,7 @@ public class MatricularController {
 
 
     @PostMapping
-    public ResponseEntity<DisciplinaMatriculaEntiy> post(@RequestBody DTOrequest request) {
+    public ResponseEntity<DisciplinaMatriculaEntity> post(@RequestBody DTOrequest request) {
         logger.info("Realizando matricula..");
         return ResponseEntity.status(HttpStatus.CREATED).body(service.matricular(request));
     }
@@ -38,21 +37,21 @@ public class MatricularController {
 
     //Retorna uma matrícula por ID
     @GetMapping("{id}")
-    public ResponseEntity<DisciplinaMatriculaEntiy> getId(@PathVariable Long id) {
+    public ResponseEntity<DisciplinaMatriculaEntity> getId(@PathVariable Long id) {
         logger.warn("Buscando matricula por ID: {}", id);
         return ResponseEntity.status(HttpStatus.OK).body(service.getById(id));
     }
 
     //Retorna as Matrículas de um Aluno (todas)
     @GetMapping("/alunos/{id}")
-    public ResponseEntity<List<DisciplinaMatriculaEntiy>> getMatriculasAluno(@PathVariable Long id) {
+    public ResponseEntity<List<DisciplinaMatriculaEntity>> getMatriculasAluno(@PathVariable Long id) {
         logger.warn("Buscando matriculas do aluno ID {}", id);
         return ResponseEntity.status(HttpStatus.OK).body(service.getMatriculasByAlunoId(id));
     }
 
     //Lista todas as disciplinas de uma matrícula(ID)
     @GetMapping("/disciplinas/{id}")
-    public ResponseEntity<List<DisciplinaMatriculaEntiy>> get(@PathVariable Long id) {
+    public ResponseEntity<List<DisciplinaMatriculaEntity>> get(@PathVariable Long id) {
         logger.warn("Buscando todas as matriculas da disciplina ID {}", id);
         return ResponseEntity.status(HttpStatus.OK).body(service.getTodasDisciplinas(id));
     }
