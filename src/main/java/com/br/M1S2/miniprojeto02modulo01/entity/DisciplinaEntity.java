@@ -1,4 +1,4 @@
-package com.br.M1S2.miniprojeto02modulo01.entities;
+package com.br.M1S2.miniprojeto02modulo01.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -9,9 +9,8 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "disciplinas")
+@Table(name = "disciplina")
 public class DisciplinaEntity implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -19,7 +18,6 @@ public class DisciplinaEntity implements Serializable {
 
     @Column(name = "nome", length = 150)
     private String nome;
-
 
     @ManyToOne
     @JoinColumn(name = "professor_id", referencedColumnName = "id")
@@ -33,7 +31,8 @@ public class DisciplinaEntity implements Serializable {
     @Override
     public String toString() {
         return "DisciplinaEntity{" +
-                "id=" + id + ", nome='" + nome + '{' + '}';
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
     }
-
 }

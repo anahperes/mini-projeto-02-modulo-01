@@ -1,7 +1,7 @@
 package com.br.M1S2.miniprojeto02modulo01.controller;
 
-import com.br.M1S2.miniprojeto02modulo01.entities.ProfessorEntity;
-import com.br.M1S2.miniprojeto02modulo01.services.ProfessorService;
+import com.br.M1S2.miniprojeto02modulo01.entity.ProfessorEntity;
+import com.br.M1S2.miniprojeto02modulo01.service.ProfessorService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/professores")
+@RequestMapping("professores")
 public class ProfessorController {
 
     private static final Logger logger = LoggerFactory.getLogger(AlunoController.class);

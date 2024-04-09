@@ -1,6 +1,6 @@
 package com.br.M1S2.miniprojeto02modulo01.controller;
-import com.br.M1S2.miniprojeto02modulo01.entities.AlunoEntity;
-import com.br.M1S2.miniprojeto02modulo01.services.AlunoService;
+import com.br.M1S2.miniprojeto02modulo01.entity.AlunoEntity;
+import com.br.M1S2.miniprojeto02modulo01.service.AlunoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

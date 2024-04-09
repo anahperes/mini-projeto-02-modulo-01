@@ -1,4 +1,4 @@
-package com.br.M1S2.miniprojeto02modulo01.entities;
+package com.br.M1S2.miniprojeto02modulo01.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,11 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
 @Entity
-
-@Table(name = "notas")
-public class NotasEntity {
-
-
+@Table(name = "nota")
+public class NotaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,13 +25,11 @@ public class NotasEntity {
     @JoinColumn(name = "professor_id")
     private ProfessorEntity professor;
 
-
     @Column(name = "nota")
     private Double nota = 0.00;
 
     @Column(name = "coeficiente")
     private Double coeficiente = 0.00;
 
-
-    }
+}
 
