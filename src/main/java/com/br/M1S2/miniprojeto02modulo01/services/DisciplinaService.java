@@ -3,13 +3,9 @@ import com.br.M1S2.miniprojeto02modulo01.entities.DisciplinaEntity;
 import java.util.List;
 
 public interface DisciplinaService {
-    public List<DisciplinaEntity> getAll();
-
-    public DisciplinaEntity getById(Long id);
-
-    public DisciplinaEntity update(Long id, DisciplinaEntity disciplina);
-
-    public DisciplinaEntity cadastrar(DisciplinaEntity novaDisciplina);
-
-    void dell(Long id);
+    DisciplinaEntity obterDisciplinaPorId(Long id);
+    List<DisciplinaEntity> listarDisciplinas();
+    DisciplinaEntity adicionarDisciplina(DisciplinaEntity disciplina);
+    DisciplinaEntity atualizarDisciplina(Long id, DisciplinaEntity atualizadoDisciplina);
+    void deletarDisciplina(Long id);
 }

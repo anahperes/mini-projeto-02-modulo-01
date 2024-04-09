@@ -22,5 +22,5 @@ public class AlunoEntity {
 
     @JsonIgnore
     @OneToMany(mappedBy = "aluno")
-    private List<DisciplinaMatriculaEntiy> disciplinas;
+    private List<DisciplinaMatriculaEntity> disciplinas;
 }
