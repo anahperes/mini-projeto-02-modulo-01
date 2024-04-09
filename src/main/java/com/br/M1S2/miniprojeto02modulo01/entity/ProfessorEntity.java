@@ -1,11 +1,9 @@
-package com.br.M1S2.miniprojeto02modulo01.entities;
+package com.br.M1S2.miniprojeto02modulo01.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @Entity
