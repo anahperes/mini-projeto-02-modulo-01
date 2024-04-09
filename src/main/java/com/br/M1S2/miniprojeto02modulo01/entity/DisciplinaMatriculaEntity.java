@@ -46,13 +46,23 @@ public class DisciplinaMatriculaEntity implements Serializable {
 
     }
 
+    @PrePersist
+    protected void calcularMediaFinal() {
+        // definir a data de matrícula automaticamente antes de salvar
+        dataMatricula = LocalDate.now();
+
+        // aqui estamos apenas definindo um valor padrão
+        if (mediaFinal == null) {
+            mediaFinal = BigDecimal.ZERO;
+        }
+    }
+
     public void setMediaFinal(BigDecimal mediaFinal) {
         this.mediaFinal = mediaFinal;
     }
 
-//Construtor que aceita um argumento do tipo int para o ID da matrícula
+    // Construtor que aceita um argumento do tipo int para o ID da matrícula
     public DisciplinaMatriculaEntity(int id) {
         this.id = (long) id;
     }
-
 }
