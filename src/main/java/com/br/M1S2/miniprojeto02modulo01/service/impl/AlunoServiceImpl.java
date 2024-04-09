@@ -1,9 +1,9 @@
-package com.br.M1S2.miniprojeto02modulo01.services;
+package com.br.M1S2.miniprojeto02modulo01.service.impl;
 
-import com.br.M1S2.miniprojeto02modulo01.entities.AlunoEntity;
+import com.br.M1S2.miniprojeto02modulo01.entity.AlunoEntity;
 import com.br.M1S2.miniprojeto02modulo01.exception.NotFoundException;
 import com.br.M1S2.miniprojeto02modulo01.repository.AlunoRepository;
-import org.antlr.v4.runtime.misc.LogManager;
+import com.br.M1S2.miniprojeto02modulo01.service.AlunoService;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

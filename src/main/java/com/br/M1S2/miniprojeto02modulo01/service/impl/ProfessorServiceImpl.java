@@ -1,8 +1,8 @@
-package com.br.M1S2.miniprojeto02modulo01.services;
-import com.br.M1S2.miniprojeto02modulo01.entities.AlunoEntity;
-import com.br.M1S2.miniprojeto02modulo01.entities.ProfessorEntity;
+package com.br.M1S2.miniprojeto02modulo01.service.impl;
+import com.br.M1S2.miniprojeto02modulo01.entity.ProfessorEntity;
 import com.br.M1S2.miniprojeto02modulo01.exception.NotFoundException;
 import com.br.M1S2.miniprojeto02modulo01.repository.ProfessorRepository;
+import com.br.M1S2.miniprojeto02modulo01.service.ProfessorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
