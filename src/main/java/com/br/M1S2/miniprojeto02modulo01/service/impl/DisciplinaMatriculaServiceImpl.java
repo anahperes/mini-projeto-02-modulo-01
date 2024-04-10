@@ -1,5 +1,6 @@
 package com.br.M1S2.miniprojeto02modulo01.service.impl;
 
+import com.br.M1S2.miniprojeto02modulo01.dto.MediaGeralAlunoDTO;
 import com.br.M1S2.miniprojeto02modulo01.entity.AlunoEntity;
 import com.br.M1S2.miniprojeto02modulo01.entity.DisciplinaEntity;
 import com.br.M1S2.miniprojeto02modulo01.entity.DisciplinaMatriculaEntity;
@@ -69,5 +70,24 @@ public class DisciplinaMatriculaServiceImpl implements DisciplinaMatriculaServic
     public List<DisciplinaMatriculaEntity> buscarMatriculasPorDisciplina(Long idDisciplina) {
         DisciplinaEntity disciplina = disciplinaService.obterDisciplinaPorId(idDisciplina);
         return matriculaRepository.findByDisciplina(disciplina);
+    }
+
+    @Override
+    public MediaGeralAlunoDTO calcularMediaGeralDoAluno(Long idAluno) {
+        List<DisciplinaMatriculaEntity> matriculas = matriculaRepository.findByAluno_Id(idAluno);
+
+        double somaDasMedias = 0.0;
+        int quantidadeDeDisciplinas = matriculas.size();
+
+        for (DisciplinaMatriculaEntity matricula : matriculas) {
+            somaDasMedias += matricula.getMediaFinal().doubleValue();
+        }
+
+        double mediaGeral = quantidadeDeDisciplinas > 0 ? somaDasMedias / quantidadeDeDisciplinas : 0.0;
+
+        MediaGeralAlunoDTO mediaGeralAlunoDTO = new MediaGeralAlunoDTO();
+        mediaGeralAlunoDTO.setMediaGeral(mediaGeral);
+
+        return mediaGeralAlunoDTO;
     }
 }

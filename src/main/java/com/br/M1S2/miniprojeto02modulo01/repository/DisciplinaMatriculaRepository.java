@@ -15,5 +15,5 @@ public interface DisciplinaMatriculaRepository extends JpaRepository<DisciplinaM
     List<DisciplinaMatriculaEntity> findByAluno(@Param("aluno") AlunoEntity aluno);
     List<DisciplinaMatriculaEntity> findByDisciplina(DisciplinaEntity disciplina);
 
-    //List<DisciplinaMatriculaEntity> findByAluno_Id(Long alunoId); // Alteração Card7
+    List<DisciplinaMatriculaEntity> findByAluno_Id(Long alunoId); // Alteração Card7
 }
