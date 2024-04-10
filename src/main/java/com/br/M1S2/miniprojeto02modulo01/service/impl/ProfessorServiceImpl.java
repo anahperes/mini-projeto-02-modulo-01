@@ -45,17 +45,13 @@ public class ProfessorServiceImpl implements ProfessorService {
 
     @Override
     public ProfessorEntity atualizarProfessor(Long id, ProfessorEntity professorAtualizado) {
-        logger.info("Atualizando Aluno com o ID: {}", id);
-        ProfessorEntity entity = professorRepository.findById(id).get();
-
+        logger.info("Atualizando Professor com o ID: {}", id);
         if (!professorRepository.existsById(id)) {
             logger.warn("Professor não encontrado com o ID: {}", id);
             throw new NotFoundException("Professor não encontrado com o ID: " + id);
         }
-
-        entity.setNome(professorAtualizado.getNome());
-        logger.info("Professor atualizado - ID: {}", id);
-        return entity;
+        professorAtualizado.setId(id);
+        return professorRepository.save(professorAtualizado);
     }
 
     @Override
