@@ -1,6 +1,7 @@
 package com.br.M1S2.miniprojeto02modulo01.controller;
 
 import com.br.M1S2.miniprojeto02modulo01.dto.MatriculaDTO;
+import com.br.M1S2.miniprojeto02modulo01.dto.MediaGeralAlunoDTO;
 import com.br.M1S2.miniprojeto02modulo01.entity.DisciplinaMatriculaEntity;
 import com.br.M1S2.miniprojeto02modulo01.service.DisciplinaMatriculaService;
 import lombok.RequiredArgsConstructor;
@@ -48,5 +49,11 @@ public class MatriculaController {
     public ResponseEntity<List<DisciplinaMatriculaEntity>> obterMatriculasPorDisciplina(@PathVariable Long idDisciplina) {
         List<DisciplinaMatriculaEntity> matriculas = disciplinaMatriculaService.buscarMatriculasPorDisciplina(idDisciplina);
         return ResponseEntity.status(HttpStatus.OK).body(matriculas);
+    }
+
+    @GetMapping("/aluno/{id}/media-geral")
+    public ResponseEntity<MediaGeralAlunoDTO> calcularMediaGeralDoAluno(@PathVariable Long id) {
+        MediaGeralAlunoDTO mediaGeralAlunoDTO = disciplinaMatriculaService.calcularMediaGeralDoAluno(id);
+        return ResponseEntity.status(HttpStatus.OK).body(mediaGeralAlunoDTO);
     }
 }
