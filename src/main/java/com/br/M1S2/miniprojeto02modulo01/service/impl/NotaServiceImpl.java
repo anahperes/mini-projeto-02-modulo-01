@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-public class NotaServiceImpl implements NotaService {
+public class   NotaServiceImpl implements NotaService {
 
     private final NotaRepository notaRepository;
     private final DisciplinaMatriculaRepository disciplinaMatriculaRepository;
