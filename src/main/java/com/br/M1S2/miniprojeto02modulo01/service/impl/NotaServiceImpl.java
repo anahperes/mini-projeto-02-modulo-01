@@ -6,6 +6,8 @@ import com.br.M1S2.miniprojeto02modulo01.exception.NotFoundException;
 import com.br.M1S2.miniprojeto02modulo01.repository.DisciplinaMatriculaRepository;
 import com.br.M1S2.miniprojeto02modulo01.repository.NotaRepository;
 import com.br.M1S2.miniprojeto02modulo01.service.NotaService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -13,6 +15,8 @@ import java.util.List;
 
 @Service
 public class   NotaServiceImpl implements NotaService {
+
+    private static final Logger logger = LoggerFactory.getLogger(NotaServiceImpl.class);
 
     private final NotaRepository notaRepository;
     private final DisciplinaMatriculaRepository disciplinaMatriculaRepository;
@@ -24,6 +28,7 @@ public class   NotaServiceImpl implements NotaService {
 
     @Override
     public NotaEntity adicionarNota(NotaEntity novaNota) {
+        logger.info("Adicionando nota: {}", novaNota);
         validarNota(novaNota);
         novaNota = notaRepository.save(novaNota);
         atualizarMediaFinal(novaNota.getMatricula().getId());
@@ -70,12 +75,14 @@ public class   NotaServiceImpl implements NotaService {
 
     @Override
     public List<NotaEntity> notasPorMatricula(Long idMatricula) {
+        logger.info("Buscando notas na matrícula: {}", idMatricula);
         return notaRepository.findByMatriculaId(idMatricula);
     }
 
 
     @Override
     public void excluirNotaPorId(Long idNota) {
+        logger.info("Excluindo nota: {}", idNota);
         NotaEntity nota = notaRepository.findById(idNota)
                 .orElseThrow(() -> new NotFoundException("Nota não encontrada com o ID fornecido"));
 
