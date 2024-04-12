@@ -41,7 +41,7 @@ This is a grade management system, aimed at a college or university. It was crea
 - [Java](https://www.java.com/pt-BR/download/help/whatis_java.html)
 
 
-## 🔧 FERRAMENTAS
+## 🔧 TOOLS
 - [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/)
 - [Trello](https://trello.com/pt-BR)
 - [Discord](https://discord.com)
