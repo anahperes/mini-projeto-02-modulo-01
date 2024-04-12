@@ -39,15 +39,18 @@ This is a grade management system, aimed at a college or university. It was crea
 
 ## 🚀 TECH
 - [Java](https://www.java.com/pt-BR/download/help/whatis_java.html)
-
+- [Docker](https://www.docker.com)
+- [Postgres](https://www.postgresql.org)
+- [Spring](https://spring.io)
 
 ## 🔧 TOOLS
 - [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/)
+- [Postman](https://www.postman.com)
 - [Trello](https://trello.com/pt-BR)
 - [Discord](https://discord.com)
 - [Google Docs](https://www.google.com/docs/about/)
 - [Google Meet](https://workspace.google.com/products/meet/)
-  
+    
 ## 📇 TEAM
 - [Ana Helena Peres](https://github.com/anahperes)
 - [David Dutra](https://github.com/dutra357)
