@@ -48,7 +48,7 @@ This is a grade management system, aimed at a college or university. It was crea
 - [Google Docs](https://www.google.com/docs/about/)
 - [Google Meet](https://workspace.google.com/products/meet/)
   
-## 📇 TIME
+## 📇 TEAM
 - [Ana Helena Peres](https://github.com/anahperes)
 - [David Dutra](https://github.com/dutra357)
 - [Gabriel Koerich](https://github.com/GKoerich18)
