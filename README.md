@@ -41,14 +41,14 @@ This is a grade management system, aimed at a college or university. It was crea
 - [Java](https://www.java.com/pt-BR/download/help/whatis_java.html)
 
 
-## 🔧 FERRAMENTAS
+## 🔧 TOOLS
 - [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/)
 - [Trello](https://trello.com/pt-BR)
 - [Discord](https://discord.com)
 - [Google Docs](https://www.google.com/docs/about/)
 - [Google Meet](https://workspace.google.com/products/meet/)
   
-## 📇 TIME
+## 📇 TEAM
 - [Ana Helena Peres](https://github.com/anahperes)
 - [David Dutra](https://github.com/dutra357)
 - [Gabriel Koerich](https://github.com/GKoerich18)
